@@ -1,5 +1,5 @@
 import path from 'path';
-console.log(process.env.APP_URL);
+
 export const config = {
     development: {
         client: 'sqlite3',
