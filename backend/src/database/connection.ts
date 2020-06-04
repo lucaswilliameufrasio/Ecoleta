@@ -1,17 +1,24 @@
 import knex from 'knex';
-// import path from 'path';
 import { config } from './config';
 
-export const configuration = process.env.NODE_ENV === 'test' ? config.test : config.development;
+const currentRunningEnvironment = () => {
+    const nodeEnvironmentVariable = process.env.NODE_ENV;
+
+    if (
+        nodeEnvironmentVariable === 'test' ||
+        nodeEnvironmentVariable === 'development' ||
+        nodeEnvironmentVariable === 'production' ||
+        nodeEnvironmentVariable === 'staging'
+    ) {
+        return config[nodeEnvironmentVariable];
+    }
+    return config.development;
+};
+
+const knexConfigBasedOnCurrentEnvironment = currentRunningEnvironment();
+
+export const configuration = knexConfigBasedOnCurrentEnvironment;
 
 const connection = knex(configuration);
-
-// const connection = knex({
-//     client: 'sqlite3',
-//     connection: {
-//         filename: path.resolve(__dirname, 'db.sqlite'),
-//     },
-//     useNullAsDefault: true,
-// });
 
 export default connection;
