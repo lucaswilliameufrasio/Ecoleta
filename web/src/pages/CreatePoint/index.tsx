@@ -61,11 +61,13 @@ const CreatePoint: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        axios.get<IBGEUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then((response) => {
-            const ufInitials = response.data.map((uf) => uf.sigla);
+        axios
+            .get<IBGEUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+            .then((response) => {
+                const ufInitials = response.data.map((uf) => uf.sigla);
 
-            setUfs(ufInitials);
-        });
+                setUfs(ufInitials);
+            });
     }, []);
 
     useEffect(() => {
