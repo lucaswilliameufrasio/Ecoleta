@@ -1,14 +1,16 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import { LeafletMouseEvent } from 'leaflet';
 import { Map, TileLayer, Marker } from 'react-leaflet';
-import api from '../../services/api';
+import { FiArrowLeft } from 'react-icons/fi';
+
+import Dropzone from '../../components/Dropzone';
 
 import './styles.css';
-
 import logo from '../../assets/logo.svg';
+
+import api from '../../services/api';
 import axios from 'axios';
-import { LeafletMouseEvent } from 'leaflet';
 
 interface Item {
     id: number;
