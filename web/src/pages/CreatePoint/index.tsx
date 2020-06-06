@@ -16,10 +16,10 @@ interface Item {
     image_url: string;
 }
 
-interface IBGUFResponse {
+interface IBGEUFResponse {
     sigla: string;
 }
-interface IBGCityResponse {
+interface IBGECityResponse {
     id: number;
     nome: string;
 }
@@ -59,7 +59,7 @@ const CreatePoint: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        axios.get<IBGUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then((response) => {
+        axios.get<IBGEUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then((response) => {
             const ufInitials = response.data.map((uf) => uf.sigla);
 
             setUfs(ufInitials);
@@ -71,7 +71,7 @@ const CreatePoint: React.FC = () => {
             return;
         }
         axios
-            .get<IBGCityResponse[]>(
+            .get<IBGECityResponse[]>(
                 `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`,
             )
             .then((response) => {

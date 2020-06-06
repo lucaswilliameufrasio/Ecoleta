@@ -3,6 +3,9 @@ node_modules
 *.sqlite-journal
 .env
 
+uploads/*
+!uploads/.gitkeep
+
 # miscellaneous
 .DS_Store
 .env.local
