@@ -22,8 +22,9 @@ describe('Point', () => {
         await connection.seed.run();
 
         const response = await request(app).get(`/items`);
+        const appURL = process.env.APP_URL;
 
-        const expectedImageURL = 'http://localhost:3333/uploads/papeis-papelao.svg';
+        const expectedImageURL = `${appURL}/uploads/papeis-papelao.svg`;
 
         expect(response.body[2]).toHaveProperty('image_url', expectedImageURL);
         expect(response.body[2]).toHaveProperty('title', 'Papéis e Papelão');
