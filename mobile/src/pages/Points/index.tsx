@@ -3,10 +3,9 @@ import { SvgUri } from 'react-native-svg';
 import MapView, { Marker } from 'react-native-maps';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, TouchableOpacity, Text, ScrollView, Image, SafeAreaView, Alert, Platform } from 'react-native';
+import { View, TouchableOpacity, Text, ScrollView, Image, Alert, Platform } from 'react-native';
 import * as Location from 'expo-location';
 
-import axios from 'axios';
 import api from '../../services/api';
 
 import styles from './styles';
@@ -22,6 +21,7 @@ interface Points {
     id: number;
     name: string;
     image: string;
+    image_url: string;
     latitude: number;
     longitude: number;
 }
@@ -157,7 +157,7 @@ const Points: React.FC = () => {
                                         <Image
                                             style={styles.mapMarkerImage}
                                             source={{
-                                                uri: point.image,
+                                                uri: point.image_url,
                                             }}
                                         />
                                         <Text style={styles.mapMarkerTitle}>{point.name}</Text>
