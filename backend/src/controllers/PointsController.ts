@@ -56,6 +56,17 @@ class PointsController {
 
         const trx = await knex.transaction();
 
+        if (!request.file) {
+            return response.status(400).json({
+                error: 'Bad request',
+                message: '"image" is required',
+                validation: {
+                    source: 'file',
+                    keys: ['image'],
+                },
+            });
+        }
+
         const point = {
             image: request.file.filename,
             name,
