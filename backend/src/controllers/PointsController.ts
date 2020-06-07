@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import knex from '../database/connection';
 
-const host = process.env.HOST || '127.0.0.1';
+const appUrl = process.env.APP_URL || 'http://127.0.0.1:3333';
 
 class PointsController {
     async index(request: Request, response: Response): Promise<Response> {
@@ -22,7 +22,7 @@ class PointsController {
         const serializedPoints = points.map((point) => {
             return {
                 ...point,
-                image_url: `http://${host}:3333/uploads/${point.image}`,
+                image_url: `${appUrl}/uploads/${point.image}`,
             };
         });
 
@@ -40,7 +40,7 @@ class PointsController {
 
         const serializedPoint = {
             ...point,
-            image_url: `http://${host}:3333/uploads/${point.image}`,
+            image_url: `${appUrl}/uploads/${point.image}`,
         };
 
         const items = await knex('items')

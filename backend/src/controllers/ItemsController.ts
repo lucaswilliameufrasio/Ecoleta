@@ -3,14 +3,14 @@ import knex from '../database/connection';
 
 class ItemsController {
     async index(request: Request, response: Response): Promise<Response> {
-        const host = process.env.HOST || '127.0.0.1';
+        const appUrl = process.env.APP_URL || 'http://127.0.0.1:3333';
         const items = await knex('items').select('*');
 
         const serializedItems = items.map((item) => {
             return {
                 id: item.id,
                 title: item.title,
-                image_url: `http://${host}:3333/uploads/${item.image}`,
+                image_url: `${appUrl}/uploads/${item.image}`,
             };
         });
 
