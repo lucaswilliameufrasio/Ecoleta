@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { LeafletMouseEvent } from 'leaflet';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { FiArrowLeft } from 'react-icons/fi';
+import * as yup from 'yup';
 
 import Dropzone from '../../components/Dropzone';
 
@@ -129,26 +130,77 @@ const CreatePoint: React.FC = () => {
         const [latitude, longitude] = selectedMapPosition;
         const items = selectedItems;
 
-        const data = new FormData();
+        const pointSchema = yup.object().shape({
+            image: yup.mixed().required(),
+            name: yup.string().required(),
+            email: yup.string().required().email(),
+            whatsapp: yup.string().required(),
+            city: yup
+                .string()
+                .required()
+                .test('city-provided', 'city is a required field', (value) => value !== '0'),
+            uf: yup
+                .string()
+                .required()
+                .min(2)
+                .max(2)
+                .test('uf-provided', 'uf is a required field', (value) => value !== '0'),
+            latitude: yup
+                .string()
+                .required()
+                .test('latitude-provided', 'select a point on the map', (value) => value !== '0'),
+            longitude: yup.string().required(),
+            items: yup.string().required(),
+        });
 
-        data.append('name', name);
-        data.append('email', email);
-        data.append('whatsapp', whatsapp);
-        data.append('city', city);
-        data.append('uf', uf);
-        data.append('latitude', String(latitude));
-        data.append('longitude', String(longitude));
-        data.append('items', items.join(','));
+        const pointObject = {
+            name,
+            email,
+            whatsapp,
+            city,
+            uf,
+            latitude: String(latitude),
+            longitude: String(longitude),
+            items: items.join(','),
+            image: selectedFile,
+        };
 
-        if (selectedFile) {
-            data.append('image', selectedFile);
-        }
+        await pointSchema
+            .validate(pointObject, {
+                abortEarly: false,
+            })
+            .then(async () => {
+                const data = new FormData();
 
-        await api.post('/points', data);
+                data.append('name', name);
+                data.append('email', email);
+                data.append('whatsapp', whatsapp);
+                data.append('city', city);
+                data.append('uf', uf);
+                data.append('latitude', String(latitude));
+                data.append('longitude', String(longitude));
+                data.append('items', items.join(','));
 
-        alert('Ponto de coleta criado');
+                if (selectedFile) {
+                    data.append('image', selectedFile);
+                }
 
-        history.push('/');
+                await api.post('/points', data);
+
+                alert('Ponto de coleta criado');
+
+                history.push('/');
+            })
+            .catch((error) => {
+                console.log(pointObject);
+                let errorMessage = '';
+                if (error.errors) {
+                    errorMessage = error.errors.map((error: string) => error + '\r\n').join('');
+                }
+
+                alert(String(errorMessage));
+                console.log(errorMessage);
+            });
     }
 
     return (
