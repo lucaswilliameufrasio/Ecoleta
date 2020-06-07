@@ -21,7 +21,7 @@ export default {
             const isValid = MIME_TYPE_MAP[file.mimetype];
 
             if (!isValid) {
-                error = new Error('São aceitos apenas arquivos de imagem.');
+                error = new Error('Invalid mime type');
 
                 callback(error, uploadFolder);
 
