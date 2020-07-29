@@ -1,3 +1,4 @@
+
 # Ecoleta - Your marketplace of residuos
 
 ![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)
@@ -12,92 +13,104 @@
 
 ![Web and Mobile app screenshot showing the first route of both](https://xo3dpw.ch.files.1drv.com/y4mSLKAV1SlE2AKKidShBl9FPrx3O-JdrAA8VPlVYUbzAcHYdqrTawjEwUfmWBWefvfZ_2-MwE3dAH5lEJUOIfLpatnekuXfOUmkRDup6meP-9pQfFowqnK6kF300jmh4NwhkJr3XBALcVHHPVEWzYXMJCJcbNddTXpL9nGE1H0v_hTtvMCFpM1GyNYgFSqMvw3wzQnoEMLFLUPVfpDhQkRqw/ecoleta-first-repo-picture.jpg?psid=1)
 ---
+## :technologist: Technologies
 
-## Content
+The following technologies was used to built the project:
+
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [FAQ](#faq)
+## :books: Content
+
+- 🖥 [Requirements](#requirements)
+- 📦 [Usage](#usage)
+- :question: [FAQ](#faq)
 - [Support](#support)
 - [License](#license)
 
 
 ---
+## 🖥 Requirements {: #requirements}
 
-## Installation
+ - NodeJS
+ - Git
 
-### Clone
+## 📦 Usage {: #usage}
 
-- Clone this repo to your local machine using `https://github.com/lucaswilliameufrasio/Ecoleta.git`
+### Clone the repository
+
+👉  Clone this repo to your local machine using:
 
 ```shell
-git clone https://github.com/lucaswilliameufrasio/Ecoleta.git ./FOLDER_NAME
+git clone https://github.com/lucaswilliameufrasio/Ecoleta.git
 ```
 
-### Setup
+### 🔨 Setup
 
-#### Backend (Required)
-> Navigate to project's folder and install packages
+#### :brain: Backend (Required)
+👉 Navigate to project's folder and install dependencies:
 
 ```shell
-$ cd FOLDER_NAME/backend
+$ cd Ecoleta/backend
 $ cp .env.example .env
 $ yarn
 ```
 > On .env file, replace HOST, PORT, APP_URL values with yours.
 
-> Note: If you will configure the backend on staging or production environment, replace DB variables and NODE_ENV to staging or production.
-
-> Run the application with
+👉  Run the application with:
 
 ```shell
 $ yarn dev
 ```
 
-> Open http://localhost:3333 on your favorite browser or continue to 
-> Note: If you set HOST and PORT they will be used, mine was http://192.168.7.79:3333
+> Open http://localhost:3333 on your favorite browser or continue to the next step.
+> Note: If you set HOST and PORT they will be used, mine was http://192.168.7.79:3333.
 
-#### Web
-> Navigate to project's folder and install packages
+####  :earth_americas: Web
+👉 Navigate to web application folder and install dependencies with:
 
 ```shell
-$ cd FOLDER_NAME/web
+$ cd Ecoleta/web
 $ yarn
 ```
 > Replace baseURL with your backend url on services/api.ts
 
-##### Note: If you're testing on a device without Google Play Services, uncomment line 70 on 'pages/Points/index.tsx' and fill with your API Key from Geocoding service by Google.
-
-> Run the application with
+👉  Run the application with:
 
 ```shell
 $ yarn start
 ```
 
-> Open http://localhost:3000 on your favorite browser
+👉 Open http://localhost:3000 on your favorite browser.
 
 ---
 
-#### Mobile
-> Navigate to project's folder and install packages
+#### :iphone: Mobile
+👉 Navigate to project's folder and install dependencies:
 
 ```shell
-$ cd FOLDER_NAME/mobile
+$ cd Ecoleta/mobile
 $ yarn
 ```
 
-> Run the expo developer tools with
+> Replace baseURL with your backend url on services/api.ts
+
+##### Note: If you're testing on a device without Google Play Services, uncomment line 70 on 'mobile/pages/Points/index.tsx' and fill with your API Key from Geocoding service by Google.
+
+👉 Run the expo developer tools with:
 
 ```shell
 $ yarn start
 ```
-> Scan the QRCode with Expo or Expo Client application on your smartphone, or click "Run on Android Device/Emulator"
-
+👉  Scan the QRCode with Expo or Expo Client application on your smartphone, or click "Run on Android Device/Emulator"
 
 ---
 
-## FAQ
+## :question: FAQ
 
 - **Why to use React, React Native and NodeJS**
     - I can reuse the acquired knowledge, that is, I can create something in react and reuse in react native, and it's all javascript / typescript.
@@ -107,11 +120,11 @@ $ yarn start
 
 ---
 
-## Support
+##  :office_worker: Author
 
-Reach out to me at one of the following places!
-
-- LinkedIn at <a  href="https://www.linkedin.com/in/lucaswilliameufrasio/"  target="_blank">`linkedin.com/in/lucaswilliameufrasio/`</a>
+ Reach me out at one of the following places:
+ 
+[![Linkedin Badge](https://img.shields.io/badge/-Lucas%20William-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/lucaswilliameufrasio/)](https://linkedin.com/in/lucaswilliameufrasio/)
 
 ## License
 
