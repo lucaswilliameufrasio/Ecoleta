@@ -17,9 +17,7 @@ export const config = {
 
     test: {
         client: 'sqlite3',
-        connection: {
-            filename: path.resolve(__dirname, 'test.sqlite'),
-        },
+        connection: ':memory:',
         migrations: {
             directory: path.resolve(__dirname, 'migrations'),
         },
