@@ -1,4 +1,5 @@
 import path from 'path';
+import env from '../config/env';
 
 export const config = {
     development: {
@@ -28,13 +29,13 @@ export const config = {
     },
 
     staging: {
-        client: process.env.DB_CLIENT ?? 'pg',
+        client: env.dbClient,
         connection: {
-            host: process.env.DB_HOST ?? '127.0.0.1',
-            port: process.env.DB_PORT ?? '5432',
-            database: process.env.DB_DATABASE ?? '',
-            user: process.env.DB_USERNAME ?? 'postgres',
-            password: process.env.DB_PASSWORD ?? '',
+            host: env.host,
+            port: env.dbPort,
+            database: env.dbDatabase,
+            user: env.dbUser,
+            password: env.dbPassword,
         },
         pool: {
             min: 2,
@@ -47,13 +48,13 @@ export const config = {
     },
 
     production: {
-        client: process.env.DB_CLIENT ?? 'pg',
+        client: env.dbClient,
         connection: {
-            host: process.env.DB_HOST ?? '127.0.0.1',
-            port: process.env.DB_PORT ?? '5432',
-            database: process.env.DB_DATABASE ?? '',
-            user: process.env.DB_USERNAME ?? 'postgres',
-            password: process.env.DB_PASSWORD ?? '',
+            host: env.host,
+            port: env.dbPort,
+            database: env.dbDatabase,
+            user: env.dbUser,
+            password: env.dbPassword,
         },
         pool: {
             min: 2,
