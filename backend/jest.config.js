@@ -3,6 +3,9 @@
 
 module.exports = {
     clearMocks: true,
-    preset: 'ts-jest',
     testEnvironment: 'node',
+    transform: {
+        '.+\\.ts$': 'ts-jest',
+    },
+    modulePathIgnorePatterns: ['mocks'],
 };
