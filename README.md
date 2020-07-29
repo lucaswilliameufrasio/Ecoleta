@@ -29,17 +29,17 @@ The following technologies was used to built the project:
 - 🖥 [Requirements](#requirements)
 - 📦 [Usage](#usage)
 - :question: [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
+- :office_worker:  [Author](#author)
+- :scroll: [License](#license)
 
 
 ---
-## 🖥 Requirements {: #requirements}
+<h2 id="requirements">🖥 Requirements </h2>
 
  - NodeJS
  - Git
 
-## 📦 Usage {: #usage}
+<h2 id="usage">📦 Usage</h2>
 
 ### Clone the repository
 
@@ -60,6 +60,13 @@ $ cp .env.example .env
 $ yarn
 ```
 > On .env file, replace HOST, PORT, APP_URL values with yours.
+
+👉  Create database structure and fill with initial data with:
+
+```shell
+$ yarn knex:migrate-latest
+$ yarn knex:seed
+```
 
 👉  Run the application with:
 
@@ -110,7 +117,7 @@ $ yarn start
 
 ---
 
-## :question: FAQ
+<h2 id="faq">:question: FAQ</h2>
 
 - **Why to use React, React Native and NodeJS**
     - I can reuse the acquired knowledge, that is, I can create something in react and reuse in react native, and it's all javascript / typescript.
@@ -120,12 +127,12 @@ $ yarn start
 
 ---
 
-##  :office_worker: Author
+<h2 id="author">:office_worker: Author</h2>
 
  Reach me out at one of the following places:
  
 [![Linkedin Badge](https://img.shields.io/badge/-Lucas%20William-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/lucaswilliameufrasio/)](https://linkedin.com/in/lucaswilliameufrasio/)
 
-## License
+<h2 id="license">:scroll: License</h2>
 
 - **[MIT](http://opensource.org/licenses/mit-license.php)**
