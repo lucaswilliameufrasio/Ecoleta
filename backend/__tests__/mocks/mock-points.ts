@@ -1,6 +1,4 @@
-import faker from 'faker';
-
-faker.locale = 'pt_BR';
+import faker from './faker-config';
 
 export const mockPoints = {
     name: faker.company.companyName(),
