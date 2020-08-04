@@ -4,6 +4,7 @@
     "main": "index.js",
     "scripts": {
         "build": "rimraf dist && tsc -p tsconfig-build.json",
+        "start": "node dist/src/server.js",
         "dev": "ts-node-dev --transpileOnly --no-notify --ignore-watch node_modules src/server.ts",
         "lint": "eslint '*/**/*.{js,ts}' --quiet --fix",
         "test": "cross-env NODE_ENV=test jest --no-cache --runInBand --detectOpenHandles",
