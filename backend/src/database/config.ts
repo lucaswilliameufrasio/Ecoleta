@@ -31,7 +31,7 @@ export const config = {
     staging: {
         client: env.dbClient,
         connection: {
-            host: env.host,
+            host: env.dbHost,
             port: env.dbPort,
             database: env.dbDatabase,
             user: env.dbUser,
@@ -50,7 +50,7 @@ export const config = {
     production: {
         client: env.dbClient,
         connection: {
-            host: env.host,
+            host: env.dbHost,
             port: env.dbPort,
             database: env.dbDatabase,
             user: env.dbUser,

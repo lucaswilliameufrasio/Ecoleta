@@ -3,8 +3,9 @@ export = {
     port: process.env.PORT || 3333,
     appUrl: process.env.APP_URL || 'http://localhost:3333',
     dbClient: process.env.DB_CLIENT || 'pg',
+    dbHost: process.env.DB_HOST || '127.0.0.1',
     dbPort: process.env.DB_PORT || '5432',
     dbDatabase: process.env.DB_DATABASE || 'ecoleta',
     dbUser: process.env.DB_USERNAME || 'postgres',
-    dbPassword: process.env.DB_USERNAME || '',
+    dbPassword: process.env.DB_PASSWORD || '',
 };

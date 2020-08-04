@@ -78,9 +78,16 @@ class PointsController {
             uf,
         };
 
-        const insertedIds = await trx('points').insert(point);
+        const insertedIds = await trx('points').insert(point).returning('id');
 
         const point_id = insertedIds[0];
+
+        if (!point_id) {
+            return response.status(418).json({
+                error: 'Error during point creation',
+                message: "I really don't know",
+            });
+        }
 
         const pointItems = items
             .split(',')
