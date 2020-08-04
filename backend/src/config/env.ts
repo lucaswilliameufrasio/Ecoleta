@@ -6,5 +6,5 @@ export = {
     dbPort: process.env.DB_PORT || '5432',
     dbDatabase: process.env.DB_DATABASE || 'ecoleta',
     dbUser: process.env.DB_USERNAME || 'postgres',
-    dbPassword: process.env.DB_USERNAME || '',
+    dbPassword: process.env.DB_PASSWORD || '',
 };
