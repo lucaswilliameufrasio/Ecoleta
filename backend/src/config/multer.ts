@@ -1,6 +1,7 @@
 import multer from 'multer';
 import path from 'path';
 import crypto from 'crypto';
+import fs from 'fs';
 
 interface IMimeTypeMap {
     [key: string]: string;
@@ -16,6 +17,11 @@ export default {
     storage: multer.diskStorage({
         destination(req, file, callback) {
             const uploadFolder = path.resolve(__dirname, '..', '..', 'uploads');
+
+            if (!fs.existsSync(uploadFolder)) {
+                fs.mkdirSync(uploadFolder);
+            }
+
             let error = null;
 
             const isValid = MIME_TYPE_MAP[file.mimetype];
