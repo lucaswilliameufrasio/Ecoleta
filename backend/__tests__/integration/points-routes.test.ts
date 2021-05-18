@@ -15,7 +15,7 @@ describe('Point', () => {
     });
 
     afterAll(async (done) => {
-        await connection.migrate.rollback({ directory: config.test.migrations.directory }, true);
+        await connection.migrate.rollback({ directory: config.test.migrations?.directory }, true);
         await connection.destroy();
         done();
     });
