@@ -1,7 +1,27 @@
 import path from 'path';
 import env from '../config/env';
+import knex, { Knex } from 'knex';
 
-export const config = {
+type KnexConnectionParams = {
+    client: string;
+    connection?: Record<string, any> | string;
+    migrations?: Record<string, any>;
+    seeds?: Record<string, any>;
+    pool?: Record<string, any>;
+    connectionConfig?: {
+        connectionString?: string;
+        host?: string;
+        user?: string;
+        port?: number;
+        password?: string;
+        database?: string;
+    };
+    useNullAsDefault?: boolean;
+};
+
+export type KnexConfig = Record<string, KnexConnectionParams>;
+
+export const config: KnexConfig = {
     development: {
         client: 'sqlite3',
         connection: {
